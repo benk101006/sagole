@@ -9,7 +9,20 @@ const GetData = () => {
   const [error, setError] = useState(null);
   const [formattedData, setFormattedData] = useState([]);
   const [timeframe, setTimeframe] = useState('7D'); // Default timeframe is '7D'
-  const [url, setUrl] = useState('https://api.coingecko.com/api/v3/coins/ethereum/market_chart?vs_currency=usd&days=7');
+  
+  // Helper function to generate the URL based on timeframe
+  const generateUrl = (timeframe) => {
+    const daysMap = {
+      '7D': 7,
+      '30D': 30,
+      '180D': 180,
+      '1Y': 365
+    };
+    const days = daysMap[timeframe];
+    return `https://api.coingecko.com/api/v3/coins/ethereum/market_chart?vs_currency=usd&days=${days}`;
+  };
+
+  const [url, setUrl] = useState(generateUrl(timeframe));
 
   // Function to format timestamp
   const formatTimestamp = (timestamp, timeframe) => {
@@ -17,17 +30,15 @@ const GetData = () => {
     switch (timeframe) {
       case '7D':
       case '30D':
-        return `${date.getMonth() + 1}/${date.getDate()}`; // MM/DD format
+        return `${date.getMonth() + 1}/${date.getDate()}`; // MM/DD format for shorter periods
       case '180D':
-        return `${date.getMonth() + 1}/${date.getFullYear()}`; // MM/YYYY format
       case '1Y':
-        return `${date.getMonth() + 1}/${date.getFullYear()}`; // MM/YYYY format
+        return `${date.getMonth() + 1}/${date.getFullYear()}`; // MM/YYYY format for longer periods
       default:
-        return date.toLocaleDateString(); // Fallback to locale date string
+        return date.toLocaleDateString(); // Default to locale date string
     }
   };
   
-
   // Function to filter data based on timeframe
   const filterDataByTimeframe = (data, timeframe) => {
     const now = Date.now();
@@ -71,7 +82,7 @@ const GetData = () => {
 
         // Process and format the data
         const formatted = filtered.map(([timestamp, price]) => ({
-          timestamp: formatTimestamp(timestamp),
+          timestamp: formatTimestamp(timestamp, timeframe),
           price,
         }));
 
@@ -92,8 +103,7 @@ const GetData = () => {
     setTimeframe(newTimeframe);
     
     // Update URL based on the selected timeframe
-    const newUrl = `https://api.coingecko.com/api/v3/coins/ethereum/market_chart?vs_currency=usd&days=${newTimeframe.replace('D', '')}`;
-    setUrl(newUrl); // Update URL based on selected timeframe
+    setUrl(generateUrl(newTimeframe));
   };
 
   if (loading) return <p className="loading">Loading...</p>;
@@ -121,18 +131,17 @@ const GetData = () => {
   const chartOptions = {
     responsive: true,
     plugins: {
-      legend: {
-        display: false, // Hide legend
-      },
+      legend: { display: false }, // Hide legend
     },
     scales: {
       x: {
         display: true,
         ticks: {
           color: 'white',
+          autoSkip: true, // Automatically skip labels to prevent overlap
         },
         grid: {
-          color: 'rgba(255, 255, 255, 0.1)',
+        color: 'rgba(255, 255, 255, 0.1)',
         },
       },
       y: {

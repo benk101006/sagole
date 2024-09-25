@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import ConverterForm from './ConverterForm';
 
-const URL7D = 'https://api.coingecko.com/api/v3/coins/ethereum/market_chart?vs_currency=usd&days=7%0A'
-const URL30D = 'https://api.coingecko.com/api/v3/coins/ethereum/market_chart?vs_currency=usd&days=30%0A'
-const URL180D = 'https://api.coingecko.com/api/v3/coins/ethereum/market_chart?vs_currency=usd&days=180%0A'
 
 
 const GraphAndConverter = ({ data, volume, marketCap }) => {
