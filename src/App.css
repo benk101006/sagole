@@ -1,0 +1,217 @@
+/* App.css */
+
+/* Reset some default styles */
+body, html, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, purple, red);
+
+}
+
+/* Gradient Background */
+.graph-and-converter-container {
+  background: linear-gradient(to bottom, purple, red);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  width: 100%;
+  min-height: 100vh;  /* This will ensure it takes at least the height of the viewport */
+  align-items: stretch; /* This stretches children to fit the height of the container */
+}
+
+/* Graph Container */
+.graph-container {
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 40px;
+}
+
+/* Timeframe Selector */
+.timeframe-selector {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.timeframe-button {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 8px 16px;
+  margin: 0 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.timeframe-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.timeframe-button.active {
+  background-color: red;
+  border-color: red;
+}
+
+/* Graph Info */
+.graph-info {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* Converter Container */
+.converter-container {
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+  padding: 30px;
+  border-radius: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.converter-container h2 {
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+}
+
+/* Converter Form */
+.converter-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+}
+
+.currency-selector {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.currency-section {
+  flex: 1;
+}
+
+.currency-dropdown {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+}
+
+.swap-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin: 0 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.swap-button:hover {
+  background-color: darkred;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 12px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-button.loading {
+  background-color: darkred;
+  cursor: not-allowed;
+}
+
+.submit-button:hover:not(.loading) {
+  background-color: darkred;
+}
+
+.exchange-rate-result {
+  margin-top: 15px;
+  font-size: 18px;
+  text-align: center;
+  color: white;
+}
+
+/* Loading, Error, No Data Messages */
+.loading, .error, .no-data {
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Ensure the entire page is taken up by the container */
+body, html, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;  /* Center content vertically */
+  justify-content: center;  /* Center content horizontally */
+  overflow: hidden;  /* Hide overflowed content */
+}
+
+/* Center the content and ensure it takes up full height */
+.graph-and-converter-container {
+  transform: scale(0.75); /* Scale down to 75% */
+  background: linear-gradient(to bottom, purple, red);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center the content vertically */
+  padding: 20px;
+  box-sizing: border-box;
+  color: white;
+  font-family: 'Arial', sans-serif;
+}
+
+.graph-container,
+.converter-container {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 30px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  margin-bottom: 40px;
+}
+
+
