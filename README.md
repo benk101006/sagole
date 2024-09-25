@@ -1,26 +1,34 @@
-# ETH USD converter
+# ETH USD Converter
 
-this project is a web that collect a data abaut ETH the digital coin
+This project is a web application that collects data about Ethereum (ETH), the digital coin.
 
-## the project have two main feachers:**
+## projects skills:
+- react
+- js
 
-- ``` **graph**
+## Project Features
 
-the graph gives the value of the eth in dollars in the timeline that u choose:
-- 7D
-- 30D
-- 180D
-- 1Y
-Under the graph u also have two statistical data of 24h Volume and Market cap
+### Graph
 
-the graph take the data from url: [data](https://api.coingecko.com/api/v3/coins/ethereum/market_chart?vs_currency=usd&days=7)
+The graph displays the value of ETH in USD over different time frames selected by the user:
 
-```
+- 7D (7 days)
+- 30D (30 days)
+- 180D (180 days)
+- 1Y (1 year)
 
-- ``` **converter**
+Beneath the graph, there are two statistical data points:
+- 24h Volume
+- Market Cap
 
-the second object in the web is the convertor that get the data of the recent value of the ETH and
-give the customer a option to convert from one price to another 
+The data for the graph is fetched from the following URL: [CoinGecko API](https://api.coingecko.com/api/v3/coins/ethereum/market_chart?vs_currency=usd&days=7)
 
-```
+### Converter
 
+The second feature on the web application is a converter that uses the most recent value of ETH to allow users to convert from USD to ETH and vice versa.
+
+## Usage
+
+To view the graph or use the converter:
+1. Select the desired timeframe for the graph to display the ETH value changes over that period.
+2. Use the converter to input an amount in USD to see the equivalent amount in ETH based on the latest conversion rate.
